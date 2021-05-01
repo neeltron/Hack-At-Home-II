@@ -1,18 +1,40 @@
 #include <Servo.h>
+
 int servoPin1 = 3;
 int servoPin2 = 4;
+int sFactor1;
+int sFactor2;
+String transmitVar = "bruh";
 Servo Servo1;
 Servo Servo2;
+
 void setup() {
+  Serial.begin(9600);
+  sFactor1 = 0;
+  sFactor2 = 0;
   Servo1.attach(servoPin1);
   Servo2.attach(servoPin2);
 }
-
 void loop() {
-  Servo1.write(90);
-  Servo2.write(90);
-  delay(1000);
-  Servo1.write(0);
-  Servo2.write(0);
-  delay(1000);
+  if (Serial.available() > 0) {
+    Serial.println("S Avl.");
+    transmitVar = Serial.readString();
+    Serial.println(transmitVar);
+    if (transmitVar.indexOf('0') > -1) {
+      sFactor1 = 0;
+      sFactor2 = 90;
+    }
+    else if (transmitVar.indexOf('1') > -1) {
+      sFactor1 = 0;
+      sFactor2 = 0;
+    }
+    else if (transmitVar.indexOf('2') > -1) {
+      sFactor1 = 90;
+      sFactor2 = 90;
+    }
+    Servo1.write(sFactor1);
+    Servo2.write(sFactor2);
+    Serial.println(sFactor1);
+    Serial.println(sFactor2);
+  }
 }
