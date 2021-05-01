@@ -12,8 +12,11 @@ void setup() {
   Serial.begin(9600);
   Servo1.attach(servoPin1);
   Servo2.attach(servoPin2);
+  Servo1.write(0);
+  Servo2.write(90);
 }
 void loop() {
+  transmitVar = "0";
   if (Serial.available() > 0) {
     Serial.println("S Avl.");
     transmitVar = Serial.readString();
