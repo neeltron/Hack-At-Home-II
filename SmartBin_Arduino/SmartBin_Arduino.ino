@@ -2,16 +2,14 @@
 
 int servoPin1 = 3;
 int servoPin2 = 4;
-int sFactor1;
-int sFactor2;
-String transmitVar = "bruh";
+int sFactor1 = 0;
+int sFactor2 = 90;
+String transmitVar = "0";
 Servo Servo1;
 Servo Servo2;
 
 void setup() {
   Serial.begin(9600);
-  sFactor1 = 0;
-  sFactor2 = 0;
   Servo1.attach(servoPin1);
   Servo2.attach(servoPin2);
 }
