@@ -6,6 +6,7 @@ In third-world countries like India, recyclable and non-recyclable waste is usua
 
 ## Installation
 Arduino IDE can be installed from <a href = "https://www.arduino.cc/en/software">this link</a>.
+
 For installing OpenCV:
 ```
 pip install opencv-python
