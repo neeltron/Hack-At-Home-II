@@ -42,10 +42,10 @@ while True:
         labels = detect('output.jpg')
         for label in labels:
             print(label.description)
-            if label.description == "Food" or label.description == "Plastic" or label.description == "Junk food":
+            if label.description == "Food" or label.description == "Plastic" or label.description == "Junk food" or label.description == "Sleak":
                 transmitVar = "1"
                 break
-            elif label.description == "Drinkware" or label.description == "Wood":
+            elif label.description == "Drinkware" or label.description == "Wood" or label.description == "Metal" or label.description == "Tough":
                 transmitVar = "2"
                 break
         break
